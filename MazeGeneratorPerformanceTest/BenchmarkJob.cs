@@ -1,17 +1,14 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
 using DeveMazeGeneratorCore.Factories;
 using DeveMazeGeneratorCore.Generators;
 using DeveMazeGeneratorCore.Generators.Helpers;
 using DeveMazeGeneratorCore.Generators.SpeedOptimization;
-using DeveMazeGeneratorCore.Imageification;
 using DeveMazeGeneratorCore.InnerMaps;
-using DeveMazeGeneratorCore.PathFinders;
-using System.Diagnostics;
-
 
 namespace MazeGeneratorPerformanceTest
 {
+    [JsonExporterAttribute.Full]
+    [JsonExporterAttribute.FullCompressed]
     public class BenchmarkJob
     {
         private const int SIZE = 4096;
