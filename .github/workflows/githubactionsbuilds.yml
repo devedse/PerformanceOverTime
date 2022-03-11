@@ -28,4 +28,4 @@ jobs:
     - name: dotnet build
       run: dotnet build MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release --no-restore /p:Version=1.0.${{needs.generate_version_number.outputs.build_number}}
     - name: Run application
-      run: MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest.exe
+      run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest.exe
