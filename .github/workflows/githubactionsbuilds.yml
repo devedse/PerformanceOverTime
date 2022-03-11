@@ -23,13 +23,28 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: dotnet restore
-      run: dotnet restore MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj
-    - name: dotnet build
-      run: dotnet build MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release --no-restore /p:Version=1.0.${{needs.generate_version_number.outputs.build_number}}
-    - name: Run application
-      run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest
+    # - name: dotnet restore
+    #   run: dotnet restore MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj
+    # - name: dotnet build
+    #   run: dotnet build MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release --no-restore /p:Version=1.0.${{needs.generate_version_number.outputs.build_number}}
+    # - name: Run application
+    #   run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest
+    - name: Run the test
+      run: dotnet run MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release
     - uses: actions/upload-artifact@v2
       with:
         name: DumpOutput
         path: ./*
+    - name: Store benchmark result
+      uses: rhysd/github-action-benchmark@v1
+      with:
+        name: Benchmark.Net Benchmark
+        tool: 'benchmarkdotnet'
+        output-file-path: BenchmarkDotNet.Artifacts/results/MazeGeneratorPerformanceTest.BenchmarkJob-report-full-compressed.json
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        auto-push: true
+        # Show alert with commit comment on detecting possible performance regression
+        alert-threshold: '200%'
+        comment-on-alert: true
+        fail-on-alert: false
+        alert-comment-cc-users: '@Devedse'
