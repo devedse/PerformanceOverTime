@@ -1,0 +1,31 @@
+name: GitHubActionsBuilds
+
+on: push
+
+jobs:
+  generate_version_number:
+    runs-on: ubuntu-latest
+    outputs:
+      build_number: ${{ steps.buildnumber.outputs.build_number }}
+    steps:
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v3 
+      with:
+        token: ${{secrets.github_token}}
+
+  build_linux:
+    needs: generate_version_number
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: dotnet restore
+      run: dotnet restore MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj
+    - name: dotnet build
+      run: dotnet build MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release --no-restore /p:Version=1.0.${{needs.generate_version_number.outputs.build_number}}
+    - name: dotnet run
+      run: dotnet MazeGeneratorPerformanceTest\MazeGeneratorPerformanceTest\bin\Release\net6.0\MazeGeneratorPerformanceTest.dll
