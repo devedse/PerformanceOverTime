@@ -14,8 +14,7 @@ namespace MazeGeneratorPerformanceTest
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<BenchmarkJob>();
-           
+            var summary = BenchmarkRunner.Run<BenchmarkJob>();           
         }
 
         public void ManualTest()
