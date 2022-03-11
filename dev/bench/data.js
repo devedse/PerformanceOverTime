@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1647003375988,
+  "lastUpdate": 1647006451921,
   "repoUrl": "https://github.com/devedse/PerformanceOverTime",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -72,6 +72,42 @@ window.BENCHMARK_DATA = {
             "value": 332997411.31578946,
             "unit": "ns",
             "range": "± 6609508.44382365"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "davydavidse@gmail.com",
+            "name": "Devedse",
+            "username": "devedse"
+          },
+          "committer": {
+            "email": "davydavidse@gmail.com",
+            "name": "Devedse",
+            "username": "devedse"
+          },
+          "distinct": true,
+          "id": "1b232f45750e7244803fa7035cb0514d1ed07c6e",
+          "message": "Test",
+          "timestamp": "2022-03-11T14:46:04+01:00",
+          "tree_id": "27997721cda97513dad9a28bd0ce279cf35bc2ca",
+          "url": "https://github.com/devedse/PerformanceOverTime/commit/1b232f45750e7244803fa7035cb0514d1ed07c6e"
+        },
+        "date": 1647006451560,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "MazeGeneratorPerformanceTest.BenchmarkJob.AlgorithmBacktrack2",
+            "value": 331189799.7777778,
+            "unit": "ns",
+            "range": "± 8926628.185701191"
+          },
+          {
+            "name": "MazeGeneratorPerformanceTest.BenchmarkJob.AlgorithmBacktrack2Deluxe2",
+            "value": 280833657.05,
+            "unit": "ns",
+            "range": "± 6201303.391959828"
           }
         ]
       }
