@@ -15,7 +15,8 @@ namespace MazeGeneratorPerformanceTest
         {
             Console.WriteLine("Generating maze...");
 
-            int size = 16384;
+            //int size = 16384;
+            int size = 4096;
             var fastestElapsed = TimeSpan.MaxValue;
 
             var alg = new AlgorithmBacktrack2Deluxe2();
