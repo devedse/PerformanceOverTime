@@ -1,4 +1,5 @@
-﻿using DeveMazeGeneratorCore.Factories;
+﻿using BenchmarkDotNet.Running;
+using DeveMazeGeneratorCore.Factories;
 using DeveMazeGeneratorCore.Generators;
 using DeveMazeGeneratorCore.Generators.Helpers;
 using DeveMazeGeneratorCore.Generators.SpeedOptimization;
@@ -13,11 +14,16 @@ namespace MazeGeneratorPerformanceTest
     {
         static void Main(string[] args)
         {
+            var summary = BenchmarkRunner.Run<BenchmarkJob>();
+           
+        }
+
+        public void ManualTest()
+        {
             Console.WriteLine("Generating maze...");
 
             //int size = 16384;
             int size = 4096;
-            var fastestElapsed = TimeSpan.MaxValue;
 
             var alg = new AlgorithmBacktrack2Deluxe2();
 
