@@ -7,6 +7,13 @@ using DeveMazeGeneratorCore.InnerMaps;
 
 namespace MazeGeneratorPerformanceTest
 {
+    [MemoryDiagnoser]
+    //[InliningDiagnoser]
+    //[TailCallDiagnoser]
+    //[EtwProfiler]
+    //[ConcurrencyVisualizerProfiler]
+    //[NativeMemoryProfiler]
+    [ThreadingDiagnoser]
     [JsonExporterAttribute.Full]
     [JsonExporterAttribute.FullCompressed]
     public class BenchmarkJob
