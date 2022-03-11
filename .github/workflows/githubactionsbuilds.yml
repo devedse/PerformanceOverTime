@@ -30,4 +30,4 @@ jobs:
     - name: Find
       run: find
     - name: Run application
-      run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest.exe
+      run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest
