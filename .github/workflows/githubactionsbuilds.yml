@@ -30,7 +30,7 @@ jobs:
     # - name: Run application
     #   run: ./MazeGeneratorPerformanceTest/bin/Release/net6.0/MazeGeneratorPerformanceTest
     - name: Run the test
-      run: dotnet run MazeGeneratorPerformanceTest/MazeGeneratorPerformanceTest.csproj -c Release
+      run: dotnet run --project MazeGeneratorPerformanceTest/ -c Release
     - uses: actions/upload-artifact@v2
       with:
         name: DumpOutput
