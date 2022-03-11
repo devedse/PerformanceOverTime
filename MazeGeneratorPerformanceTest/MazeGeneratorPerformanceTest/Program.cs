@@ -38,7 +38,7 @@ namespace MazeGeneratorPerformanceTest
             var path = PathFinderDepthFirstSmartWithPos.GoFind(maze, null);
             wPath.Stop();
 
-            Console.WriteLine($"Maze pathfinding time: {wMaze.Elapsed}");
+            Console.WriteLine($"Maze pathfinding time: {wPath.Elapsed}");
 
             var wSave = Stopwatch.StartNew();
             using (var fs = new FileStream($"icon{seed}.png", FileMode.Create))
@@ -47,7 +47,7 @@ namespace MazeGeneratorPerformanceTest
             }
             wSave.Stop();
 
-            Console.WriteLine($"Maze save to image time: {wMaze.Elapsed}");
+            Console.WriteLine($"Maze save to image time: {wSave.Elapsed}");
         }
     }
 }
